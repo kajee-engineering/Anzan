@@ -10,7 +10,7 @@ import java.util.logging.LogManager;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-public class Main {
+public class Anzan {
 
     // みとり暗算3級 3桁5口
     private static final int digit = 3;
@@ -22,7 +22,7 @@ public class Main {
         mitoriAnzan();
     }
 
-    private static void mitoriAnzan() {
+    static void mitoriAnzan() {
         while(true) {
             System.out.println("Are you ready??(y/n)");
             String input = scanner.nextLine();
@@ -68,7 +68,7 @@ public class Main {
         }
     }
 
-    private static void printAnswerAndProcess(int[] numbers, int expected, int actual) {
+    static void printAnswerAndProcess(int[] numbers, int expected, int actual) {
         System.out.printf("%-20s : %d%n", "Your answer", expected);
         System.out.printf("%-20s : %d%n", "Actual answer", actual);
 
@@ -80,7 +80,7 @@ public class Main {
         }
     }
 
-    private static void printDigitNumber(int[] array) {
+    static void printDigitNumber(int[] array) {
         System.out.println("-".repeat(20));
         for (int num : array) {
             System.out.println(num);
@@ -88,7 +88,7 @@ public class Main {
         System.out.println("-".repeat(20));
     }
 
-    private static int[] generateThreeDigitNumber() {
+    static int[] generateThreeDigitNumber() {
         Random random = new Random();
         int[] numbers = new int[count];
         for (int i = 0; i < count; i++) {
@@ -104,9 +104,9 @@ public class Main {
         return numbers;
     }
 
-    private static void setLogger() {
+    static void setLogger() {
         LogManager.getLogManager().reset(); // no output in console
-        logger = java.util.logging.Logger.getLogger(Main.class.getName());
+        logger = java.util.logging.Logger.getLogger(Anzan.class.getName());
         String fileName = "calculation.log";
         try {
             FileHandler fileHandler = new FileHandler(fileName, true);
